@@ -1,0 +1,9 @@
+{
+  "verbose": false,
+  "watch": [
+    "src/utils",
+    "src/routes.js",
+    "webpack"
+  ],
+  "exec": "npm run build:dev"
+}
