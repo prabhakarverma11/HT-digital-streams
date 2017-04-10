@@ -1,58 +1,27 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router';
+import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
+import { connect } from 'react-redux';
 import {LinkContainer} from 'react-router-bootstrap';
-import {connect} from "react-redux";
-import {
-    Navbar,
-    // NavbarHeader,
-    Nav,
-    // Item,
-    NavItem,
-    // NavbarItems,
-    // DropdownMenu,
-    // NavbarDropdown,
-    NavDropdown,
-    // Checkbox,
-    // Radio,
-    FormGroup,
-    // ControlLabel,
-    // Form,
-    // Col,
-    // Breadcrumb,
-    FormControl,
-    MenuItem, Button
-} from 'react-bootstrap';
-@connect((store) => {
-    return {
-        isAuthenticated: store.authenticate.isAuthenticated,
-    }
-}, (dispatch) => {
-    return {
-        requestSignin: (creds) => {
-            dispatch(signin(creds));
-        }
-    }
-})
+import {Navbar,Nav,NavItem} from 'react-bootstrap';
 
-
-export default class Menu extends Component {
-    render() {
-        const {children, isAuthenticated} = this.props;
+class Navigation extends React.Component{
+    render(){
         return (
-            <div className='Menu'>
-                {isAuthenticated &&
+            <div className=''>
                 <Navbar inverse collapseOnSelect>
                     <Navbar.Header>
                         <Navbar.Brand>
                             <Link to='/'>Home</Link>
                         </Navbar.Brand>
-                        {/*<Navbar.Toggle />*/}
                     </Navbar.Header>
                     <Navbar.Collapse>
 
                         <Nav pullRight>
                             <LinkContainer to="/login">
                                 <NavItem eventKey={0}>Login</NavItem>
+                            </LinkContainer>
+                            <LinkContainer to="/logout">
+                                <NavItem eventKey={4}>Logout</NavItem>
                             </LinkContainer>
                             <LinkContainer to="/signup">
                                 <NavItem eventKey={1}>Signup</NavItem>
@@ -73,9 +42,21 @@ export default class Menu extends Component {
 
                     </Navbar.Collapse>
                 </Navbar>
-                }
-                { children }
             </div>
         );
-    };
-}
+    }
+};
+
+Navigation.propTypes = {
+    //user: PropTypes.object,
+    //logOut: PropTypes.func.isRequired
+};
+
+// function mapStateToProps(state) {
+//     return {
+//         user: state.user
+//     };
+// }
+
+// export default connect(mapStateToProps)(Navigation);
+export default Navigation;

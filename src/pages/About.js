@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Page from './Page';
-import LoginContainer from '../containers/login/Login';
+import AboutContainer from '../containers/about/About';
 
-class Login extends Component {
+class About extends Component {
     getMetaData() {
         return {
             title: this.pageTitle(),
@@ -12,7 +12,7 @@ class Login extends Component {
     }
 
     pageTitle() {
-        return 'Login';
+        return 'About ';
     }
 
     pageMeta() {
@@ -29,11 +29,11 @@ class Login extends Component {
         return (
             <Page {...this.getMetaData()}>
                 <div className="app app-header-fixed ">
-                    <LoginContainer {...this.props} />
+                    <AboutContainer {...this.props} />
                 </div>
             </Page>
         );
     }
 }
 
-export default Login;
+export default About;

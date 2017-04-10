@@ -56,6 +56,9 @@ export default class SignupForm extends Component {
                 <div className="form-group">
                     <button className="btn btn-primary btn-md" onClick={this.onFormSubmit}> Signup</button>
                 </div>
+                <p className="text-center">
+                    <small>Already have an account? </small><Link to="/login">Sign in</Link>
+                </p>
             </form>
 
         );

@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import Helmet from 'react-helmet';
-
+import Navigation from "../containers/navigation/Navigation"
 const Page = ({title, link, meta, children}) => {
     return (
         <div>

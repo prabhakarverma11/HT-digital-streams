@@ -9,13 +9,12 @@ import createRoutes from './routes';
 import './styles/app.css';
 // import './styles/font.css';
 
-
-const store = configureStore();
+const store = configureStore({});
 const routes = createRoutes(store);
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={browserHistory}>
+        <Router history={ browserHistory}>
             {routes}
         </Router>
     </Provider>,

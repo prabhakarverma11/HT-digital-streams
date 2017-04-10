@@ -1,7 +1,6 @@
 import React from 'react';
 import {Route, IndexRoute} from 'react-router';
-import {Home, Login, Signup, Lead} from "./pages";
-import {Menu} from "./components/menu/Menu"
+import { Layout, Home, Login, Signup, Lead, About, Logout} from "./pages";
 
 
 export default (store) => {
@@ -28,10 +27,12 @@ export default (store) => {
     };
 
     return (
-        <Route path='/' name="Menu" component={ Menu }>
+        <Route path='/' name="Layout" component={Layout}>
             <IndexRoute component={ Home } name="Home" onEnter={requireAuth}/>
-            <Route path='leads' component={ Lead } name="Lead"/>
+            <Route path='about' component={ About } name="About" onEnter={requireAuth}/>
+            <Route path='leads' component={ Lead } name="Lead" onEnter={requireAuth}/>
             <Route path='login' component={ Login} name="Login" onEnter={redirectAuth}/>
+            <Route path='logout' component={ Logout} name="Logout" />
             <Route path='signup' component={ Signup } name="Signup"/>
         </Route>
     );

@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from "react";
 import {connect} from "react-redux";
 
-import SigninForm from "../../components/login/SigninForm";
 import {signin} from "../../actions/authActions/signinAction";
+import SigninForm from "../../components/login/SigninForm";
 
 @connect((store) => {
     return {

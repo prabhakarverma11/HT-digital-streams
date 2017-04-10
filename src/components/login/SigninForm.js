@@ -38,7 +38,7 @@ export default class SigninForm extends Component {
                 <div className="text-center m-t m-b"><a>Forgot password?</a></div>
                 <div className="line line-dashed"></div>
                 <p className="text-center">
-                    <small>Do not have an account?</small>
+                    <small>Do not have an account? </small><Link to="/signup">create account</Link>
                 </p>
             </form>
 

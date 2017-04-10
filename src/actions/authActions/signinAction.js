@@ -45,18 +45,22 @@ export function signin(creds) {
     }
     return dispatch => {
         dispatch(requestSignin({username: creds.username, password: creds.password}));
-        return makeRequest(config.method, config.api, config.data, config.headers)
-            .then(response => {
-                if (response.status === 200) {
-                    localStorage.setItem('id_token', JSON.parse(response.data.user).id_token);
-                    dispatch(receiveSignin(JSON.parse(response.data.user)));
-                } else {
-                    dispatch(signinError(response.data.message));
-                    return Promise.reject(response.data);
-                }
-            }).catch((err) => {
-                dispatch(signinError("Authentication Failed !"));
-                console.error("Authentication Error: ")
-            });
+        if(creds.username === "prabhakarverma11@gmail.com" && creds.password ==="password"){
+            dispatch(receiveSignin({user:{name:"prabhakar",id_token:12345}}))
+            return null;
+        }
+        // return makeRequest(config.method, config.api, config.data, config.headers)
+        //     .then(response => {
+        //         if (response.status === 200) {
+        //             localStorage.setItem('id_token', JSON.parse(response.data.user).id_token);
+        //             dispatch(receiveSignin(JSON.parse(response.data.user)));
+        //         } else {
+        //             dispatch(signinError(response.data.message));
+        //             return Promise.reject(response.data);
+        //         }
+        //     }).catch((err) => {
+        //         dispatch(signinError("Authentication Failed !"));
+        //         console.error("Authentication Error: ")
+        //     });
     }
 }
